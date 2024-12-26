@@ -73,4 +73,29 @@ class user
             echo "tidak ada data";
         }
     }
+
+    function ubah_user($id_user, $username, $email, $pass, $nama, $alamat, $jk, $tempat, $tanggal)
+    {
+        $conn = new koneksi();
+        $sql = "UPDATE user SET username = '$username', email = '$email', password = '$pass', nama_user = '$nama', alamat_user = '$alamat', jenis_kelamin = '$jk', tempatlahir_user = '$tempat', tanggallahir_user = '$tanggal' WHERE id_user = '$id_user' ";
+
+        $query = mysqli_query($conn->koneksi, $sql);
+
+        if ($query) {
+            echo "<script>alert('Data Berhasil Di Ubah');window.location='../views/dashboard.php'</script>";
+        } else {
+            echo "<script>alert('Data Tidak Berhasil Di Ubah');window.location='../views/edit.php'</script>";
+        }
+    }
+
+    function hapus_user($id_user)
+    {
+        $conn = new koneksi();
+
+        $query = "DELETE FROM user WHERE id_user = $id_user";
+
+        mysqli_query($conn->koneksi, $query);
+
+        header("location:../views/dashboard.php");
+    }
 }

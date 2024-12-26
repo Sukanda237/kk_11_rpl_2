@@ -94,7 +94,7 @@ include_once '../controllers/c_lahitan.php';
                 ?>
                     <tr>
                         <td><label for="username">Username:</label></td>
-                        <input type="text" id="username" name="id_user" hidden>
+                        <input type="text" id="username" name="id_user" value="<?= $data->id_user ?>" hidden>
                         <td><input type="text" name="username1" id="username" value="<?= $data->username ?>"></td>
                     </tr>
                     <tr>
